@@ -95,7 +95,7 @@ window.addEventListener("DOMContentLoaded", function () {
   diplayMenuItems(menu);
   displayMenuButtons();
 });
-/*no problem */
+/*display all the menu item after mapping and joining*/
 function diplayMenuItems(menuItems) {
   let displayMenu = menuItems.map(function (item) {
     // console.log(item);
