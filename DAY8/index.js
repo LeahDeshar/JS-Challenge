@@ -86,6 +86,12 @@ const btnContainer = document.querySelector(".btn-container");
 // display all items when page loads
 //do stg when pages loads
 window.addEventListener("DOMContentLoaded", function () {
+  /*
+  --this function pass menu array as argument
+  --then map the element by performing the function
+  --return the array after changing the value
+  
+   */
   diplayMenuItems(menu);
   displayMenuButtons();
 });
@@ -107,6 +113,7 @@ function diplayMenuItems(menuItems) {
           </div>
         </article>`;
   });
+  /*similar to array.map().join() */
   displayMenu = displayMenu.join("");
   // console.log(displayMenu);
 
@@ -155,7 +162,8 @@ function displayMenuButtons() {
         </button>`;
     })
     .join("");
-  /* */
+  /* categories.map().join("")
+  --*/
   btnContainer.innerHTML = categoryBtns;
   const filterBtns = btnContainer.querySelectorAll(".filter-btn");
   // console.log(filterBtns);
@@ -164,6 +172,11 @@ function displayMenuButtons() {
     btn.addEventListener("click", function (e) {
       // console.log(e.currentTarget.dataset);
       const category = e.currentTarget.dataset.id;
+      /*
+      --if the currentItem.category of the menu array is equals to id value 
+      --which is passed to the category then return it 
+      --all the return menuItem will make the new array called menuCategory
+      */
       const menuCategory = menu.filter(function (menuItem) {
         // console.log(menuItem.category);
         if (menuItem.category === category) {
