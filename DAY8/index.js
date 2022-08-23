@@ -112,9 +112,27 @@ function diplayMenuItems(menuItems) {
 
   sectionCenter.innerHTML = displayMenu;
 }
+/*reduce method have two paramater
+callback function and initialValue
+-below initialValue is [all]
+-then callback function also has two parameter
+-function(accumulator,currentItem)
+-accumulator or values in code will take in the initalValue 'all' at first
+-in reduce method we always have to return accumulator values */
 function displayMenuButtons() {
   const categories = menu.reduce(
     function (values, item) {
+      /*
+      explanation 
+      -- if values(accumulator) does not includes the currentItem.category
+      --push that currentItem in the accumulator
+      --else just return the accumulator/values
+      --as we are only selecting .category 
+      --result would be
+      --["all","breakfast","lunch","shakes","dinner"]
+      --there is no repeated category as it will not 
+      --push if currentItem already belongs to the accumulator
+      */
       if (!values.includes(item.category)) {
         values.push(item.category);
       }
@@ -122,6 +140,14 @@ function displayMenuButtons() {
     },
     ["all"]
   );
+  /*
+  --after reducing categories array will have final element
+  -- ["all","breakfast","lunch","shakes","dinner"]
+  --this array is mapped again to perform the function
+  --we pass the category's value to the data-id 
+  --new array categoryBtn is created
+  --then joined to create string of that array
+  */
   const categoryBtns = categories
     .map(function (category) {
       return `<button type="button" class="filter-btn" data-id=${category}>
@@ -129,7 +155,7 @@ function displayMenuButtons() {
         </button>`;
     })
     .join("");
-
+  /* */
   btnContainer.innerHTML = categoryBtns;
   const filterBtns = btnContainer.querySelectorAll(".filter-btn");
   // console.log(filterBtns);
