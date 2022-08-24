@@ -74,3 +74,58 @@ console.log(doubleNum);
 //String constructor will turn each element into a string
 const stringItUp = doubleNum.map(String);
 console.log(stringItUp);
+
+//3) Capitalize each of an array of names
+const names = ["john", "JACOB", "jinGleHeimer", "schmidt"];
+
+const capitalizeWord = names.map(function (x) {
+  let result = x.toUpperCase();
+  return result;
+});
+console.log(capitalizeWord);
+
+// 4) Make an array of strings of the names
+
+const person = [
+  {
+    name: "Angelina Jolie",
+    age: 80,
+  },
+  {
+    name: "Eric Jones",
+    age: 2,
+  },
+  {
+    name: "Paris Hilton",
+    age: 5,
+  },
+  {
+    name: "Kayne West",
+    age: 16,
+  },
+  {
+    name: "Bob Ziroll",
+    age: 100,
+  },
+];
+const nameOnly = person.map(function (x) {
+  return x.name;
+});
+console.log(nameOnly);
+
+const canOrNot = person.map(function (x) {
+  if (x.age > 50) {
+    return x.name + " can go to The matrix";
+  } else {
+    return x.name + " is under age!";
+  }
+});
+console.log(canOrNot);
+
+// 6) Make an array of the names in h1's, and the ages in h2's
+
+const modify = person.map(function (x) {
+  return `<h1>${x.name}</h1>
+ <h2>${x.age}</h2>`;
+});
+console.log(modify);
