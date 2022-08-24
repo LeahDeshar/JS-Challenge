@@ -129,3 +129,15 @@ const modify = person.map(function (x) {
  <h2>${x.age}</h2>`;
 });
 console.log(modify);
+
+/*------------REDUCE()---------------- */
+//Sum of every positive element
+const input = [1, -4, 12, 0, -3, 29, -150];
+const result = input
+  .filter(function (x) {
+    return x > 0;
+  })
+  .reduce(function (acc, item) {
+    return acc + item;
+  });
+console.log(result);
