@@ -131,7 +131,7 @@ const modify = person.map(function (x) {
 console.log(modify);
 
 /*------------REDUCE()---------------- */
-//Sum of every positive element
+//1) Sum of every positive element
 const input = [1, -4, 12, 0, -3, 29, -150];
 const result = input
   .filter(function (x) {
@@ -141,3 +141,36 @@ const result = input
     return acc + item;
   });
 console.log(result);
+// 2) Turn an array of numbers into a long string of all those numbers.
+const stringConcat = [1, 2, 3];
+const result1 = stringConcat.reduce(function (acc, item) {
+  return acc + item;
+});
+console.log(result1);
+
+// 3) Turn an array of voter objects into a count of how many people voted
+const voters = [
+  { name: "Bob", age: 30, voted: true },
+  { name: "Jake", age: 32, voted: true },
+  { name: "Kate", age: 25, voted: false },
+  { name: "Sam", age: 20, voted: false },
+  { name: "Phil", age: 21, voted: true },
+  { name: "Ed", age: 55, voted: true },
+  { name: "Tami", age: 54, voted: true },
+  { name: "Mary", age: 31, voted: false },
+  { name: "Becky", age: 43, voted: false },
+  { name: "Joey", age: 41, voted: true },
+  { name: "Jeff", age: 30, voted: true },
+  { name: "Zack", age: 19, voted: false },
+];
+
+const total = voters.reduce(function (acc, item) {
+  if (item.voted) {
+    //reduce will go through all the item of an array
+    //check the truthy value if true
+    return acc + 1; //add 1 each time to get the length
+  } else {
+    return acc; //if false just return acc value as it is
+  }
+}, 0);
+console.log(`There are ${total} voters.`); //display the length
