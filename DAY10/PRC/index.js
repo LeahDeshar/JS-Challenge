@@ -1,70 +1,66 @@
-// Element.getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
-// pageYOffset is a read - only window property that returns the number of pixels the document has been scrolled vertically.
-// slice extracts a section of a string without modifying original string
-//offsetTop - A Number, representing the top position of the element, in pixels
-
-// select span
-const date = document.getElementById("date");
-date.innerHTML = new Date().getFullYear();
-
-// ********** close links ************
 const navToggle = document.querySelector(".nav-toggle");
 const linksContainer = document.querySelector(".links-container");
 const links = document.querySelector(".links");
 
-// smaller screen event
+//smaller screen click event
 navToggle.addEventListener("click", function () {
   const linksHeight = links.getBoundingClientRect().height;
-  //getBoundingClientRect() returns the object that have the position and size of the element
-  //in above code it returns the height of the links
-
+  //   console.log(linksHeight); returns 214...
+  //height of nav-ul-->linksContainer is set to 0 in css file
   const containerHeight = linksContainer.getBoundingClientRect().height;
-  //again height of the linksContainer
+  //   console.log(containerHeight); returns 0
 
-  //after collecting the height of container if the height is === 0 then
   if (containerHeight === 0) {
-    //put the value of height in linksContainer
+    //if height is 0 in css then put
+    //height of it to the value of linksHeight =214
+    //this will open the nav after clicking in the bar
+    //for small screen
     linksContainer.style.height = `${linksHeight}px`;
   } else {
+    //this block will hide as we click and the if condition is not true
     linksContainer.style.height = 0;
   }
-  // console.log(linksContainer.getBoundingClientRect());
 });
-
-// ********** fixed navbar ************
 
 const navbar = document.getElementById("nav");
 const topLink = document.querySelector(".top-link");
 
-/*Do this when the scroll event happens */
+//Do when the scroll event happen
 window.addEventListener("scroll", function () {
   const scrollHeight = window.pageYOffset;
+  //pageYOffset returns the value in px which has been scrolled from top to bottom vertically
+  //when we have scrolled above 500px
 
   const navHeight = navbar.getBoundingClientRect().height;
+  //   console.log(navHeight); returns 84px
+
   if (scrollHeight > navHeight) {
+    //when scrolled above the 84px
+    //navbar is made fixed
     navbar.classList.add("fixed-nav");
   } else {
+    //if condition is false this class is removed
     navbar.classList.remove("fixed-nav");
   }
-  // setup back to top link
-
   if (scrollHeight > 500) {
-    console.log("helo");
-
+    //we add the show-link class to toplink
+    //it will show pushToTop arrow
+    //it is initially hidden and shown when
+    //scrolled above 500px
     topLink.classList.add("show-link");
   } else {
+    //else remove
     topLink.classList.remove("show-link");
   }
 });
 
-// ********** smooth scroll ************
-// select links
+//on clicking on each link do this event
 const scrollLinks = document.querySelectorAll(".scroll-link");
-scrollLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    // prevent default
+
+scrollLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
     e.preventDefault();
-    // navigate to specific spot
+
     const id = e.currentTarget.getAttribute("href").slice(1);
     const element = document.getElementById(id);
 
@@ -72,14 +68,12 @@ scrollLinks.forEach((link) => {
     const containerHeight = linksContainer.getBoundingClientRect().height;
     const fixedNav = navbar.classList.contains("fixed-nav");
     let position = element.offsetTop - navHeight;
-
     if (!fixedNav) {
       position = position - navHeight;
     }
     if (navHeight > 82) {
-      position = position + containerHeight;
+      position += containerHeight;
     }
-
     window.scrollTo({
       left: 0,
       top: position,
@@ -88,4 +82,3 @@ scrollLinks.forEach((link) => {
     linksContainer.style.height = 0;
   });
 });
-// calculate heights
