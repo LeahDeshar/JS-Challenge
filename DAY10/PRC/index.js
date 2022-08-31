@@ -1,5 +1,6 @@
 const navToggle = document.querySelector(".nav-toggle");
 const linksContainer = document.querySelector(".links-container");
+// console.log(linksContainer); its height is set as 0 in the css file
 const links = document.querySelector(".links");
 
 //smaller screen click event
@@ -65,18 +66,33 @@ scrollLinks.forEach(function (link) {
     const element = document.getElementById(id);
 
     const navHeight = navbar.getBoundingClientRect().height;
-    const containerHeight = linksContainer.getBoundingClientRect().height;
+    //navHeight == 84px
+    const containerHeight = linksContainer.getBoundingClientRect().height; //28.000
     const fixedNav = navbar.classList.contains("fixed-nav");
+
+    //offset returns the the top position (in the pixel) relative to its parent.
     let position = element.offsetTop - navHeight;
+
+    //element.offsetTop for the first element is 0
+    //Home--> 0-84 = -84
+    //About--> 322-84 =238
+    //Services--> 579-84 =495
+    //Tours--> 836-84 =752
+
     if (!fixedNav) {
+      //if navBar contains class "fixed-nav" is false
+      //do this
       position = position - navHeight;
+      //Home--> 0-84 = -168
+      // console.log(position);
     }
+    //84>82 =true
     if (navHeight > 82) {
       position += containerHeight;
     }
     window.scrollTo({
       left: 0,
-      top: position,
+      top: position, //get the position
     });
     // close
     linksContainer.style.height = 0;
