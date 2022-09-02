@@ -9,6 +9,7 @@ about.addEventListener("click", function (e) {
   //buttons
   //   console.log(id);
   //only when we click on it
+  //if block will be executed if there is no undefined value
   if (id) {
     // remove selected from other buttons
     btns.forEach(function (btn) {
@@ -21,6 +22,7 @@ about.addEventListener("click", function (e) {
       article.classList.remove("active");
     });
     const element = document.getElementById(id);
+    console.log(element);
     element.classList.add("active");
   }
 });

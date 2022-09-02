@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Btns selecting</title>
+    <style>
+      button {
+        border: none;
+        background-color: #82699ae2;
+        color: #fff;
+        padding: 7px 15px;
+        border-radius: 20px;
+      }
+      .content {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="btnCon">
+        <button class="tab-btn active" data-id="history">History</button>
+        <button class="tab-btn" data-id="vision">Vision</button>
+        <button class="tab-btn" data-id="goals">Goals</button>
+      </div>
+      <div id="history" class="content active">
+        <p>you clicked on the history button.</p>
+      </div>
+      <div id="vision" class="content">
+        <p>you clicked on the vision button.</p>
+      </div>
+      <div id="goals" class="content">
+        <p>you clicked on the goals button.</p>
+      </div>
+    </div>
+  </body>
+</html>
