@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .content {
+        display: none;
+      }
+      .content.active {
+        display: block;
+      }
+      button {
+        border: none;
+        background-color: #621d1d;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="tab-container">
+        <button type="button" class="tab-btn" data-id="btn_1">Btn 1</button>
+        <button type="button" class="tab-btn" data-id="btn_2">Btn 2</button>
+        <button type="button" class="tab-btn" data-id="btn_3">Btn 3</button>
+      </div>
+      <div class="content-container">
+        <div class="content active" id="btn_1">This is a container 1</div>
+        <div class="content" id="btn_2">This is a container 2</div>
+        <div class="content" id="btn_3">This is a container 3</div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

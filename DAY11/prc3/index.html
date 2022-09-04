@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        background-color: coral;
+        padding: 15px 20px;
+        border-radius: 25px;
+        border: none;
+      }
+      .content.active {
+        display: block;
+      }
+      .content {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div class="btn-container">
+        <button type="button" class="tab-btn" data-id="btn_1">btn_1</button>
+        <button type="button" class="tab-btn" data-id="btn_2">btn_2</button>
+        <button type="button" class="tab-btn" data-id="btn_3">btn_3</button>
+      </div>
+      <div class="content-container">
+        <div class="content active" id="btn_1">
+          <p>This is a btn 1</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio qui
+            voluptatum quae quaerat unde consectetur rerum itaque ea quam
+            dolorum?
+          </p>
+        </div>
+        <div class="content" id="btn_2">
+          <p>This is a btn 2</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio qui
+            voluptatum quae quaerat unde consectetur rerum itaque ea quam
+            dolorum?
+          </p>
+        </div>
+        <div class="content" id="btn_3">
+          <p>This is a btn 3</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio qui
+            voluptatum quae quaerat unde consectetur rerum itaque ea quam
+            dolorum?
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

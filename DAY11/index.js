@@ -21,6 +21,10 @@ about.addEventListener("click", function (e) {
     articles.forEach(function (article) {
       article.classList.remove("active");
     });
+    //passing the id we received after clicking the btn in the getElementById
+    //we are using data-id in btns
+    //and corresponding id-value in content-section
+    //after clicking on the btns it will be passed here
     const element = document.getElementById(id);
     console.log(element);
     element.classList.add("active");
